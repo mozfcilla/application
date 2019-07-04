@@ -31,7 +31,8 @@
     "serve-favicon": "^2.1.7",
     "sqlite3": "^3.1.1",
     "underscore": "^1.8.3",
-    "validator": "^3.43.0"
+    "validator": "^3.43.0",
+    "snyk": "^1.189.0"
   },
   "devDependencies": {
     "chai": "^2.2.0",
@@ -41,6 +42,9 @@
   "scripts": {
     "test": "node node_modules/mocha/bin/mocha --recursive t/*",
     "start": "node bin/wwww",
-    "db-update": "node node_modules/.bin/sequelize db:migrate --config=config/db.json --models-path=lib/model/db/"
-  }
+    "db-update": "node node_modules/.bin/sequelize db:migrate --config=config/db.json --models-path=lib/model/db/",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
+  },
+  "snyk": true
 }
